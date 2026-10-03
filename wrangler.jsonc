@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "flood-alert",
+  "name": "floodalert",
   "main": "src/worker.py",
   "compatibility_date": "2026-10-02",
   "compatibility_flags": [
@@ -9,7 +9,7 @@
   "hyperdrive": [
     {
       "binding": "HYPERDRIVE",
-      "id": "281ea631f8b34ec9852e9f7669c7f4f4"
+      "id": "YOUR_HYPERDRIVE_CONFIG_ID"
     }
   ],
   "vars": {
