@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "flood-alert",
+  "main": "src/worker.py",
+  "compatibility_date": "2026-10-02",
+  "compatibility_flags": [
+    "python_workers"
+  ],
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "YOUR_HYPERDRIVE_CONFIG_ID"
+    }
+  ],
+  "vars": {
+    "TMD_FORECAST_URL": "https://data.tmd.go.th/nwpapi/v1/forecast/location/hourly/place",
+    "TMD_WARNING_URL": "https://data.tmd.go.th/api/WeatherWarningNews/v2/?uid=demo&ukey=demokey",
+    "TMD_TIMEOUT": "30",
+    "TMD_FORECAST_HOURS": "24",
+    "TMD_MAX_RETRIES": "3",
+    "TMD_RETRY_BASE_SECONDS": "5",
+    "TMD_REQUEST_DELAY_SECONDS": "2",
+    "TMD_FORECAST_FIELDS": "tc,rh,slp,rain,ws10m,wd10m,cond",
+    "TMD_WARNING_TIMEOUT": "30",
+    "TMD_WARNING_CACHE_MINUTES": "10"
+  },
+  "triggers": {
+    "crons": [
+      "*/15 * * * *",
+      "*/10 * * * *"
+    ]
+  },
+  "observability": {
+    "enabled": true
+  }
+}
