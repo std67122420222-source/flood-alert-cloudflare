@@ -123,3 +123,7 @@ Cron ของ Cloudflare ใช้เวลา UTC. งาน refresh ถูก
 Python Workers ใช้ Pyodide/WebAssembly. Package ต้องมี build ที่เข้ากันได้กับ Workers. โปรเจกต์นี้จึงใช้ `pg8000` กับ Hyperdrive และ `bcrypt` โดยตรง แทน `psycopg[binary]` และ `Flask-Bcrypt` ที่ผูกกับ native server environment มากกว่า.
 
 สำหรับ Worker Free plan Cloudflare ระบุ request, CPU, memory และ subrequest limits ไว้ชัดเจน หากมีการใช้งานหนักหรือ refresh หลายจังหวัดพร้อมกัน อาจต้องปรับความถี่ Cron/upgrade plan.
+
+
+## Cloudflare Workers runtime note
+This build uses the built-in Workers Python SDK (`disable_python_external_sdk`) so Workers Builds with `npx wrangler deploy` do not require bundling the external `workers` package.
